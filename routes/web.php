@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
 });
 
+//Supplier Controller
 Route::controller(SupplierController::class)->group(function(){
     Route::get('/supplier/all','SupplierAll')->name('supplier.all');
     Route::get('/supplier/add','SupplierAdd')->name('supplier.add');
@@ -49,4 +51,8 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/supplier/delete/{id}','SupplierDelete')->name('supplier.delete');
 });
 
+//Customer Controller
+Route::controller(CustomerController::class)->group(function(){
+    Route::get('/customer/all', 'CustomerAll')->name('customer.all');
+});
 require __DIR__.'/auth.php';
