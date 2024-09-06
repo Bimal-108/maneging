@@ -8,16 +8,16 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Add Supplier Page </h4><br><br>
-                            <form method="post" action="{{ route('unit.store') }}" id="myForm" >
+                            <form method="post" action="{{ route('category.store') }}" id="myForm" >
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Unit Name </label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Category Name </label>
                                     <div class="form-group col-sm-10">
-                                        <input name="name" class="form-control" type="text" required>
+                                        <input name="name" class="form-control" type="text"  required="">
                                     </div>
                                 </div>
                                 <!-- end row -->
-                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Unit">
+                                <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Category">
                             </form>
                         </div>
                     </div>
@@ -25,7 +25,6 @@
             </div>
         </div>
     </div>
-
     <script type="text/javascript">
         $(document).ready(function (){
             $('#myForm').validate({
@@ -33,11 +32,13 @@
                     name: {
                         required : true,
                     },
+
                 },
                 messages :{
                     name: {
                         required : 'Please Enter Your Name',
                     },
+
                 },
                 errorElement : 'span',
                 errorPlacement: function (error,element) {
@@ -54,7 +55,4 @@
         });
 
     </script>
-
-
-
 @endsection
