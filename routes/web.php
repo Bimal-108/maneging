@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\UnitControll;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,4 +61,16 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('/customer/delete/{id}', 'CustomerDelete')->name('customer.delete');
     Route::post('/customer/update', 'CustomerUpdate')->name('customer.update');
 });
+
+//Unit Controller
+Route::controller(UnitControll::class)->group(function (){
+    Route::get('/unit/all', 'UnitAll')->name('unit.all');
+    Route::get('/unit/add', 'UnitAdd')->name('unit.add');
+    Route::post('/unit/store', 'UnitStore')->name('unit.store');
+    Route::get('/unit/edit/{id}', 'UnitEdit')->name('unit.edit');
+    Route::get('/unit/delete/{id}', 'UnitDelete')->name('unit.delete');
+    Route::post('/unit/update', 'UnitUpdate')->name('unit.update');
+
+});
+
 require __DIR__.'/auth.php';
